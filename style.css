@@ -1,0 +1,238 @@
+:root {
+  --primary-clr: #fd7401;
+  --gray-clr: #555555;
+  --light-gray: #c2c2c2;
+  --white-clr: #fff;
+  --black-clr: #000000;
+  --light-gray2: #f1f3f6;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box !important;
+}
+.header {
+  background-color: var(--light-gray2);
+}
+.header .headerLogo {
+  width: 150px;
+  border: none;
+}
+.header .login a,
+.header .logout {
+  padding: 8px 20px;
+  background-color: var(--primary-clr);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--white-clr);
+  text-decoration: none;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.header .signUp a {
+  padding: 8px 20px;
+  background-color: var(--light-gray2);
+  outline: none;
+  border: 1px solid var(--primary-clr);
+  border-radius: 5px;
+  color: var(--primary-clr);
+  text-decoration: none;
+  margin-left: 5px;
+}
+.content-wrapper {
+  margin-top: 20px;
+}
+.tabs {
+  width: 100%;
+}
+.tabs-btn {
+  background-color: var(--light-gray2);
+  color: var(--gray-clr);
+  width: 100%;
+}
+.tabs-btn:hover {
+  color: var(--primary-clr);
+}
+.tabs-btn.active {
+  background-color: var(--primary-clr) !important;
+  color: var(--white-clr);
+}
+.my-form {
+  width: 100%;
+}
+
+.logo img {
+  border: none;
+}
+.emailInput img,
+.passInput img {
+  background-color: var(--primary-clr);
+  border: none;
+  padding: 10px;
+}
+
+.emailInput,
+.passInput {
+  width: 100%;
+  position: relative;
+}
+.emailInput input,
+.passInput input,
+.myInput {
+  background-color: var(--light-gray2);
+  outline: none;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin: 10px;
+}
+
+.emailInput img,
+.passInput img {
+  position: absolute;
+  right: 0;
+}
+.forgot {
+  font-size: 14px;
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+#logInBtn,
+#signUpBtn {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--primary-clr);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--white-clr);
+}
+.seperate {
+  text-align: center;
+}
+#googleBtn {
+  width: 100%;
+  padding: 8px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--black-clr);
+  background-color: var(--light-gray2);
+}
+#myName {
+  font-weight: bold;
+  color: var(--primary-clr);
+  cursor: pointer;
+  text-decoration: none;
+}
+.rights {
+  text-align: center;
+}
+#category {
+  background-color: var(--light-gray2);
+  margin: 10px;
+  border: none;
+  cursor: pointer;
+}
+#category:focus {
+  box-shadow: unset;
+}
+#blog-category {
+  border-radius: 20px;
+  background-color: rgb(213, 230, 173);
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.blogs-btn {
+  padding: 8px 20px;
+  background-color: var(--primary-clr);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--white-clr);
+  text-decoration: none;
+  margin: 10px;
+}
+
+.my-card {
+  padding: unset !important;
+  margin: 10px;
+}
+.my-card-body {
+  padding: 10px !important;
+}
+#errorImg{
+  width: 250px;
+}
+
+/* From Uiverse.io by vinodjangid07 */
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loaderMiniContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100px;
+  height: fit-content;
+}
+.barContainer {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  background-position: left;
+}
+.bar {
+  width: 100%;
+  height: 8px;
+  background: var(--primary-clr);
+  background-size: 200% 100%;
+  border-radius: 10px;
+  animation: bar ease-in-out 3s infinite alternate-reverse;
+}
+@keyframes bar {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+.bar2 {
+  width: 50%;
+}
+.svgIcon {
+  position: absolute;
+  left: -25px;
+  margin-top: 18px;
+  z-index: 2;
+  width: 70%;
+  animation: search ease-in-out 3s infinite alternate-reverse;
+}
+@keyframes search {
+  0% {
+    transform: translateX(0%) rotate(70deg);
+  }
+
+  100% {
+    transform: translateX(100px) rotate(10deg);
+  }
+}
+.svgIcon circle,
+line {
+  stroke: var(--primary-clr);
+}
+.svgIcon circle {
+  fill: #fd72012a;
+}
