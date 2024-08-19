@@ -19,7 +19,7 @@
   border: none;
 }
 .header .login a,
-.header .logout {
+.header .logout,.btn-solid {
   padding: 8px 20px;
   background-color: var(--primary-clr);
   outline: none;
@@ -30,7 +30,7 @@
   margin-left: 5px;
   cursor: pointer;
 }
-.header .signUp a {
+.header .signUp a,.my-btn-fluid {
   padding: 8px 20px;
   background-color: var(--light-gray2);
   outline: none;
@@ -42,6 +42,17 @@
 }
 .content-wrapper {
   margin-top: 20px;
+}
+
+.hero{
+  margin: 80px 0px;
+}
+.hero h1{
+font-size: 60px;
+}
+.hero p{
+  color: var(--light-gray);
+  font-size: 20px;
 }
 .tabs {
   width: 100%;
@@ -165,8 +176,24 @@
 .my-card-body {
   padding: 10px !important;
 }
-#errorImg{
+#errorImg {
   width: 250px;
+}
+.btn-wrapper {
+  padding: 0px 10px 10px 10px;
+}
+.btn-wrapper button {
+  padding: 8px 20px;
+  background-color: var(--light-gray2);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: var(--black-clr);
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+.delete {
+  color: red !important;
 }
 
 /* From Uiverse.io by vinodjangid07 */

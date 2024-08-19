@@ -6,7 +6,13 @@ import {
   collection,
   addDoc,
   getDocs,
+  doc,
+  deleteDoc,
+  getDoc,
+  updateDoc,
 } from "../firebase.js";
+
+let isEdit = null;
 
 let logOutBtn = document.getElementById("logOutBtn");
 
@@ -30,7 +36,7 @@ logOutBtn.addEventListener("click", logOut);
 // redirection functionality=================
 
 onAuthStateChanged(auth, (user) => {
-  console.log(user);
+  // console.log(user);
 
   if (!user) {
     window.location.href = "../Login/login.html";
@@ -61,7 +67,7 @@ const addBlogs = async () => {
         description: blogDescInput.value,
         category: blogCategoryInput.value,
       });
-      console.log("Document written with ID: ", docRef.id);
+      // console.log("Document written with ID: ", docRef.id);
       showBlogs();
     } catch (e) {
       Toastify({
@@ -82,6 +88,7 @@ const addBlogs = async () => {
   blogDescInput.value = "";
   blogCategoryInput.value = "";
 };
+
 addBlogsBtn.addEventListener("click", addBlogs);
 
 // show blogs functionality===============
@@ -105,11 +112,15 @@ const showBlogs = async () => {
       const { title, description, category } = doc.data();
       //   console.log(`${doc.id} => ${doc.data()}`);
       showBlogsDiv.innerHTML += `    <div class="card my-card col-md-3" style="width: 18rem;">
-    <img src="../assets/imgs/lorem.webp" class="card-img-top">
+    <img src="../assets/imgs/undraw_zoom_in_1txs.png" class="card-img-top">
     <div class="card-body my-card-body">
     <span id="blog-category">${category}</span>
       <h5 class="card-title mt-2">${title}</h5>
       <p class="card-text">${description}</a>
+    </div>
+    <div class="btn-wrapper d-flex flex-column">
+          <button onclick="edit('${doc.id}',this)">Edit</button>
+          <button class="delete" onclick="del('${doc.id}',this)">Delete</button>
     </div>
     </div>`;
     });
@@ -119,4 +130,54 @@ const showBlogs = async () => {
     loader.style.display = "none";
   }
 };
+
+window.del = async (id, button) => {
+  button.innerText = "Deleting";
+  try {
+    await deleteDoc(doc(db, "blogs", id));
+    showBlogs();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+window.edit = async (id, button) => {
+  try {
+    addBlogsBtn.style.display = "none";
+    updateBlogsBtn.style.display = "block";
+    let userData = await getDoc(doc(db, "blogs", id));
+    const { title, description, category } = userData.data();
+    isEdit = id;
+    blogTitleInput.value = title;
+    blogDescInput.value = description;
+    blogCategoryInput.value = category;
+    showBlogs();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+let updateBlogsBtn = document.getElementById("updateBlogs");
+updateBlogsBtn.style.display = "none";
+
+const updateData = async () => {
+  try {
+    await updateDoc(doc(db, "blogs", isEdit), {
+      title: blogTitleInput.value,
+      description: blogDescInput.value,
+      category: blogCategoryInput.value,
+    });
+    showBlogs();
+    blogTitleInput.value = "";
+    blogDescInput.value = "";
+    blogCategoryInput.value = "";
+    updateBlogsBtn.style.display = "none";
+    addBlogsBtn.style.display = "block";
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+updateBlogsBtn.addEventListener("click", updateData);
+
 showBlogs();
