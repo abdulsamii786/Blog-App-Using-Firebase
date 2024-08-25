@@ -43,13 +43,13 @@ const showBlogs = async () => {
     showDataOnIndex.innerHTML = "";
     loader.style.display = "none";
     querySnapshot.forEach((doc) => {
-      const { title, description, category } = doc.data();
+      const { title, description, category,image } = doc.data();
       // console.log(`${doc.id} => ${doc.data()}`);
 
       if (title && description) {
         showDataOnIndex.innerHTML += `
-      <div class="card col-md-3 mb-2 my-card" style="width: 16rem;">
-      <img src="./assets/imgs/lorem.webp" class="card-img-top">
+      <div class="card my-card col-md-3" style="width: 18rem;">
+      <div class="d-flex align-items-center justify-content-center image-card"><img src="${image}" class="card-img-top "></div>
       <div class="card-body my-card-body">
           <span  id="blog-category">${category}</span>
         <h5 class="card-title mt-2">${title}</h5>

@@ -20,6 +20,14 @@ import {
   updateDoc,
 } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
 
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "https://www.gstatic.com/firebasejs/10.13.0/firebase-storage.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyBwOMhXWfpPbrwqvdP8g31btlit49-SNIY",
   authDomain: "mini-hackathon-3e681.firebaseapp.com",
@@ -34,6 +42,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 export {
   auth,
@@ -53,4 +62,9 @@ export {
   deleteDoc,
   getDoc,
   updateDoc,
+  storage,
+  ref,
+  uploadBytes,
+  uploadBytesResumable,
+  getDownloadURL,
 };

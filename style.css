@@ -19,7 +19,8 @@
   border: none;
 }
 .header .login a,
-.header .logout,.btn-solid {
+.header .logout,
+.btn-solid {
   padding: 8px 20px;
   background-color: var(--primary-clr);
   outline: none;
@@ -30,7 +31,8 @@
   margin-left: 5px;
   cursor: pointer;
 }
-.header .signUp a,.my-btn-fluid {
+.header .signUp a,
+.my-btn-fluid {
   padding: 8px 20px;
   background-color: var(--light-gray2);
   outline: none;
@@ -44,13 +46,13 @@
   margin-top: 20px;
 }
 
-.hero{
+.hero {
   margin: 80px 0px;
 }
-.hero h1{
-font-size: 60px;
+.hero h1 {
+  font-size: 60px;
 }
-.hero p{
+.hero p {
   color: var(--light-gray);
   font-size: 20px;
 }
@@ -169,6 +171,11 @@ font-size: 60px;
   margin: 10px;
 }
 
+.description-add label span img {
+  width: 45px;
+  cursor: pointer;
+}
+
 .my-card {
   padding: unset !important;
   margin: 10px;
@@ -176,6 +183,13 @@ font-size: 60px;
 .my-card-body {
   padding: 10px !important;
 }
+
+.image-card img{
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
 #errorImg {
   width: 250px;
 }
@@ -194,6 +208,17 @@ font-size: 60px;
 }
 .delete {
   color: red !important;
+}
+
+#progressBar {
+  position:fixed;
+  top: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--primary-clr);
+}
+progress::-webkit-progress-value {
+  background-color: var(--primary-clr);
 }
 
 /* From Uiverse.io by vinodjangid07 */
@@ -262,4 +287,26 @@ line {
 }
 .svgIcon circle {
   fill: #fd72012a;
+}
+
+/* image-loader */
+
+.img-loader {
+  width: 40px;
+  height: 40px;
+  border: 5px solid var(--primary-clr);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

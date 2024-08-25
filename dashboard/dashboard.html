@@ -43,7 +43,7 @@
         </nav>
     </section>
 
-    
+
     <div class="container">
         <div class="row">
             <div class="text-center mt-3">
@@ -73,9 +73,21 @@
                     </div>
                     <div class="description-add d-flex">
                         <input class="myInput" id="blogDesc" type="url" placeholder="Description">
+                        <label class="d-flex align-items-center">
+                            <input class="myInput" id="blogPic" type="file" accept="image/*" style="display: none;">
+                            <span><img src="../assets/imgs/img-icon.png" alt=""></span>
+                            <span id="imgName"></span>
+                            <div id="img-loader" class="img-loader"></div>
+                        </label>
                         <button class="blogs-btn" id="addBlogs">Add+</button>
                         <button class="blogs-btn" id="updateBlogs">Update</button>
                     </div>
+                    <!-- <div class="upload-buttons">
+
+                        <button id="pause">Pause</button>
+                        <button id="resume">Resume</button>
+                        <button id="cancel">Cancel</button>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -125,7 +137,7 @@
             </div>
         </div>
     </section>
-
+    <progress id="progressBar" value="0" max="100"></progress>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
