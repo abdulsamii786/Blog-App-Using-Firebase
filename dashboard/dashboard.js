@@ -21,6 +21,17 @@ let isEdit = null;
 let uploadTask;
 let getImage;
 
+// pre loader=================
+
+let webLoader = document.querySelector(".web-loader");
+
+const preLoader = () => {
+  webLoader.style.display = "none";
+};
+window.addEventListener("load", preLoader);
+
+// Log Out Funcionality=================
+
 let logOutBtn = document.getElementById("logOutBtn");
 
 const logOut = () => {
@@ -241,7 +252,7 @@ window.edit = async (id, button) => {
     blogTitleInput.value = title;
     blogDescInput.value = description;
     blogCategoryInput.value = category;
-    imgName.innerText = image.slice(79,89) + "...";
+    imgName.innerText = image.slice(79, 89) + "...";
     showBlogs();
   } catch (error) {
     console.log(error);
@@ -263,6 +274,7 @@ const updateData = async () => {
     blogTitleInput.value = "";
     blogDescInput.value = "";
     blogCategoryInput.value = "";
+    imgName.innerText = "";
     updateBlogsBtn.style.display = "none";
     addBlogsBtn.style.display = "block";
   } catch (error) {

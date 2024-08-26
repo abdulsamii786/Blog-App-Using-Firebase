@@ -1,5 +1,15 @@
 import { auth,createUserWithEmailAndPassword ,signInWithEmailAndPassword,sendPasswordResetEmail,GoogleAuthProvider,provider,signInWithPopup,onAuthStateChanged  } from "../firebase.js";
 
+// pre loader=================
+
+let webLoader = document.querySelector(".web-loader");
+
+const preLoader = () => {
+  webLoader.style.display = "none";
+};
+window.addEventListener("load", preLoader);
+
+
 // signup functionality==============================
 
 let signUpEmail=document.getElementById("signUpEmailInput")

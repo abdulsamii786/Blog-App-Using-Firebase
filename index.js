@@ -10,6 +10,15 @@ import {
 let loader = document.getElementById("loader");
 loader.style.display = "none";
 
+// pre loader=================
+
+let webLoader = document.querySelector(".web-loader");
+
+const preLoader = () => {
+  webLoader.style.display = "none";
+};
+window.addEventListener("load", preLoader);
+
 // redirection functionality=================
 
 onAuthStateChanged(auth, (user) => {
@@ -43,7 +52,7 @@ const showBlogs = async () => {
     showDataOnIndex.innerHTML = "";
     loader.style.display = "none";
     querySnapshot.forEach((doc) => {
-      const { title, description, category,image } = doc.data();
+      const { title, description, category, image } = doc.data();
       // console.log(`${doc.id} => ${doc.data()}`);
 
       if (title && description) {
